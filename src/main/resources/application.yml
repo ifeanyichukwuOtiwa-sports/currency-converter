@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: CurrencyConverter
+currency:
+  currency-access-key: ${CURRENCY_ACCESS_KEY}
+  fixer-access-key: ${FIXER_ACCESS_KEY}
+  open-exchange-access-key: ${OPEN_ACCESS_KEY}
