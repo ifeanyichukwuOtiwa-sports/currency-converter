@@ -23,8 +23,8 @@ Only minimal data is returned by design (maps of codes → values or a small map
 ---
 
 ### Requirements
-- JDK 17+ (recommended by modern Spring Boot setups)
-- Maven 3.8+ (or use the included Maven Wrapper `./mvnw`)
+- JDK 21+ (recommended by modern Spring Boot setups)
+- Gradle 8.14.3+ (or use the included Maven Wrapper `./gradlew`)
 - Network access to provider APIs (CurrencyAPI, Fixer, OpenExchange)
 
 ---
@@ -57,27 +57,32 @@ export CURRENCY_CURRENCYACCESSKEY=... \
 
 ### Bootstrapping (Run Locally)
 1) Clone the repository
-```bash
-git clone https://your.git.host/your-org/CurrencyConverter.git
-cd CurrencyConverter
-```
-
+    ```bash
+    git clone 
+    cd CurrencyConverter
+    ```
 2) Configure API keys
-- Update `src/main/resources/application.yml` as shown above, or export env vars.
+   - Update `src/main/resources/application.yml` as shown above, or export env vars.
 
-3) Build and run
-- Using Maven Wrapper:
-```bash
-./mvnw clean package
-./mvnw spring-boot:run
-```
-- Or run the built jar:
-```bash
-java -jar target/CurrencyConverter-*.jar
-```
+3) Build and run (Gradle Wrapper)
+   - Build the project:
+    ```bash
+    ./gradlew clean build
+    ```
+   - Run the application:
+    ```bash
+    ./gradlew bootRun
+    ```
+   - Or run the built jar:
+    ```bash
+    java -jar build/libs/*-SNAPSHOT.jar
+    ```
+
+    Notes:
+    - On Windows, use `gradlew.bat` instead of `./gradlew`.
 
 4) Verify the app started
-- Check logs for `Started ... in X seconds` and that it listens on your configured `server.port` (default `8080`).
+   - Check logs for `Started ... in X seconds` and that it listens on your configured `server.port` (default `8080`).
 
 ---
 
